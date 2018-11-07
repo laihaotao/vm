@@ -1,0 +1,1 @@
+add_executable(mark_and_copy mc.cpp)
