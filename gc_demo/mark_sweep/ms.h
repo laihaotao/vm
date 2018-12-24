@@ -29,6 +29,7 @@ typedef struct {
 } ReferencePool;
 
 void gc(ReferencePool *pool) {
+    cout << "********* gc ***********" << endl;
     // mark process
     assert(pool->root != nullptr);
     MyObj *next = pool->root->obj;
@@ -51,6 +52,7 @@ void gc(ReferencePool *pool) {
         }
         i++;
     }
+    cout << "******" << endl;
 }
 
 void alloc(ReferencePool *pool, MyObj *p_obj) {

@@ -27,7 +27,7 @@ int main() {
 
     // set the references as follows:
     // (the object p2 pointed to can be collected, no coming reference)
-    //      - - - - - - - - - -
+    //      -------------------
     //      |                 |
     //      v                 |
     //      p1 -> p3 -> p4 -> p5
@@ -48,7 +48,7 @@ int main() {
     alloc(&pool, p7);
 
     cout << "= = = = = = = = = = = =" << endl;
-    p0->obj = nullptr;
-    free_obj(p0);
+    pool.root->obj = nullptr;
     gc(&pool);
+    free_obj(pool.root);
 }

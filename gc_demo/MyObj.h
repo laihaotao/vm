@@ -20,6 +20,7 @@ struct MyObj {
 void free_obj(MyObj *p_obj) {
     cout << "free the object at: " << p_obj << endl;
     delete p_obj;
+    p_obj = nullptr;
 }
 
 MyObj *create_obj(int val) {
