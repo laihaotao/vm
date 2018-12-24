@@ -22,7 +22,7 @@ int main() {
     alloc(&pool, p3);
     alloc(&pool, p4);
     alloc(&pool, p5);
-    p0->obj = p1;
+    pool.root->obj = p1;
     cout << "= = = = = = = = = = = =" << endl;
 
     // set the references as follows:
@@ -51,8 +51,11 @@ int main() {
 
     MyObj *p7 = create_obj(7);
     alloc(&pool, p7);
-//    MyObj *p8 = create_obj(8);
-//    alloc(&pool, p8);
+    cout << "= = = = = = = = = = = =" << endl;
+
+    pool.root->obj = nullptr;
+    gc(&pool);
+    free_obj(pool.root);
 
     return 0;
 }
